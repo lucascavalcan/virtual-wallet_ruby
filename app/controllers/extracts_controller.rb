@@ -8,6 +8,8 @@ class ExtractsController < ApplicationController
 
   # GET /extracts/1 or /extracts/1.json
   def show
+    @wallet = Wallet.find(params[:id])
+    @extracts = @wallet.extracts
   end
 
   # GET /extracts/new
@@ -22,7 +24,7 @@ class ExtractsController < ApplicationController
   # POST /extracts or /extracts.json
   def create
     @extract = Extract.new(extract_params)
-
+    
     respond_to do |format|
       if @extract.save
         format.html { redirect_to extract_url(@extract), notice: "Extract was successfully created." }
@@ -65,6 +67,6 @@ class ExtractsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def extract_params
-      params.require(:extract).permit(:amount, :entry_type, :wallet_id)
+      params.require(:extract).permit(:user_id, :value, :transaction_type)
     end
 end

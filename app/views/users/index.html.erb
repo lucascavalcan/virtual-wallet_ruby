@@ -4,11 +4,13 @@
 
 <div id="users">
   <% @users.each do |user| %>
+    <hr>
     <%= render user %>
     <p>
       <%= link_to "Show this user", user %>
     </p>
   <% end %>
+  <hr>
 </div>
 
 <%= link_to "New user", new_user_path %>

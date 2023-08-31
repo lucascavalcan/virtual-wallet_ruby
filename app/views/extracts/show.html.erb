@@ -1,10 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @extract %>
+
+<!---<%= render @extract %>--->
 
 <div>
-  <%= link_to "Edit this extract", edit_extract_path(@extract) %> |
-  <%= link_to "Back to extracts", extracts_path %>
+  <h2>Extracts</h2> 
+  
+  <% @extracts.sort_by(&:created_at).reverse_each do |extract| %>
+    <% if extract.wallet.user.id == @wallet.user.id and extract.value != nil %>
+      <p>Value: <%= extract.value %></p>
+      <p>Type: <%= extract.transaction_type %></p>
+      <p>Date: <%= extract.created_at %></p>
+      <hr>
+    <% end %>
+  <% end %>
+  <!---<%= link_to "Edit this extract", edit_extract_path(@extract) %>---> |
+  <%= link_to "Back to wallet", wallet_path %>
 
-  <%= button_to "Destroy this extract", @extract, method: :delete %>
+  <!---<%= button_to "Destroy this extract", @extract, method: :delete %>--->
 </div>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Extracts</h1>
+
+<div id="extracts">
+  <% @extracts.each do |extract| %>
+    <%= render extract %>
+    <p>
+      <%= link_to "Show this extract", extract %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New extract", new_extract_path %>

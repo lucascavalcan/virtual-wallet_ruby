@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_195816) do
   enable_extension "plpgsql"
 
   create_table "extracts", force: :cascade do |t|
-    t.decimal "amount"
-    t.string "entry_type"
+    t.float "value"
+    t.string "transaction_type"
     t.bigint "wallet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,14 +24,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_195816) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "user_name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.decimal "balance"
+    t.float "amount", default: 0.0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

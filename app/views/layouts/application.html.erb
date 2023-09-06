@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VirtualWalletManager</title>
+    <title>Virtual Wallet</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Virtual Wallet</h1>
+    </header>
+    
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <p>Criado por Lucas Cavalcanti</p>
+    </footer>
   </body>
 </html>
